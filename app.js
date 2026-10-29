@@ -866,27 +866,43 @@
     addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
   }
   window.__ludo = { get G() { return G; }, get OL() { return OL; }, S, E }; // handy for debugging/tests
-  // --- ডিপোজিট ও ওয়ালেট সিস্টেম কোড ---
-
-// ১. এন্ট্রি ফি কাটার ফাংশন (ম্যাচ শুরু করার সময়)
-
-
-function deductEntryFee(currentBalance, entryFee) {
-    if (currentBalance >= entryFee) {
-        let updatedBalance = currentBalance - entryFee;
-        console.log("সফলভাবে এন্ট্রি ফি কাটা হয়েছে। নতুন ব্যালেন্স: " + updatedBalance);
-        return updatedBalance;
-    } else {
-        alert("আপনার অ্যাকাউন্টে পর্যাপ্ত ব্যালেন্স নেই! দয়া করে ডিপোজিট করুন।");
-        return null;
-    }
-}
-
-// ২. ম্যাচ জেতার পর টাকা যোগ করার ফাংশন
-function addWinningPrize(currentBalance, prizeAmount) {
-    let updatedBalance = currentBalance + prizeAmount;
-    console.log("বিজয়ী হয়েছেন! ওয়ালেটে টাকা যোগ হয়েছে। নতুন ব্যালেন্স: " + updatedBalance);
-    return updatedBalance;
-}
-
 })();
+/* ===== Entry Fee Modal ===== */
+function deductEntryFee(balance, fee) {
+  if (balance < fee) {
+    alert("আপনার কয়েন যথেষ্ট নেই!");
+    return null;
+  }
+  return balance - fee;
+}
+
+function openOnlineMode() {
+  document.getElementById("entryFeeModal").style.display = "block";
+}
+
+function closeFeeModal() {
+  document.getElementById("entryFeeModal").style.display = "none";
+}
+
+function selectFee(feeAmount) {
+  var S = window.__ludo.S;
+  var newBalance = deductEntryFee(S.coins, feeAmount);
+  if (newBalance === null) return;
+
+  S.coins = newBalance;
+  try { localStorage.setItem("rl_coins", JSON.stringify(S.coins)); } catch (e) {}
+
+  closeFeeModal();
+  window.__feePaid = true;
+  document.querySelector('.menu-btn[data-go="online"]').click();
+}
+
+// হোমের "অনলাইন" বাটনে চাপলে আগে ফি বক্স দেখাবে
+document.addEventListener("click", function (e) {
+  var b = e.target.closest('.menu-btn[data-go="online"]');
+  if (!b) return;
+  if (window.__feePaid) { window.__feePaid = false; return; }
+  e.stopPropagation();
+  e.preventDefault();
+  openOnlineMode();
+}, true);
