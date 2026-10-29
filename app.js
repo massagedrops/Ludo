@@ -905,4 +905,29 @@ document.addEventListener("click", function (e) {
   e.stopPropagation();
   e.preventDefault();
   openOnlineMode();
+  // --- ডিপোজিট ও উইথড্র সিস্টেম কন্ট্রোল ---
+
+function openDepositModal() {
+    document.getElementById("depositModal").style.display = "block";
+}
+
+function closeDepositModal() {
+    document.getElementById("depositModal").style.display = "none";
+}
+
+function submitDeposit() {
+    let num = document.getElementById("depNumber").value;
+    let amt = document.getElementById("depAmount").value;
+    if(num && amt) {
+        alert("আপনার " + amt + " টাকার ডিপোজিট রিকুয়েস্ট সফলভাবে জমা হয়েছে।");
+        closeDepositModal();
+    } else {
+        alert("দয়া করে সঠিক নম্বর ও টাকার পরিমাণ লিখুন।");
+    }
+}
+
+function openWithdrawModal() {
+    alert("উইথড্র সিস্টেমটি খুব শীঘ্রই চালু করা হবে।");
+}
+
 }, true);
