@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Royal Ludo</title>
+<meta name="description" content="Royal Ludo – classic Ludo board game. Play vs computer or with friends. Install it on your phone!">
+<meta name="theme-color" content="#070D1E">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Royal Ludo">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <section id="s-home" class="screen"></section>
+  <section id="s-setup" class="screen"></section>
+  <section id="s-game" class="screen"></section>
+  <section id="s-howto" class="screen"></section>
+  <section id="s-profile" class="screen"></section>
+  <section id="s-settings" class="screen"></section>
+  <section id="s-online" class="screen"></section>
+</div>
+<canvas id="confetti"></canvas>
+<div id="toast" role="status"></div>
+<noscript>Royal Ludo needs JavaScript enabled.</noscript>
+<script src="config.js"></script>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
