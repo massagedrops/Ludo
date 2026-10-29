@@ -1,6 +1,6 @@
 /* Royal Ludo service worker – offline support.
  * Bump VERSION whenever you deploy new files so installed apps refresh. */
-const VERSION = 'royal-ludo-v2';
+const VERSION = 'royal-ludo-v3;
 const ASSETS = [
   './', './index.html', './style.css', './config.js', './engine.js', './app.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/maskable-512.png',
