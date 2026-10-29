@@ -31,5 +31,15 @@
 <script src="config.js"></script>
 <script src="engine.js"></script>
 <script src="app.js"></script>
+  <!-- এন্ট্রি ফি সিলেকশন মোডাল বা বক্স -->
+<div id="entryFeeModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#222; padding:20px; border-radius:10px; color:#fff; z-index:1000; text-align:center;">
+    <h3>ম্যাচ ফি নির্বাচন করুন</h3>
+    <p>অনলাইনে খেলতে এন্ট্রি ফি জমা দিন:</p>
+    <button onclick="selectFee(50)" style="padding:10px 20px; margin:5px; background:green; color:white; border:none; border-radius:5px;">৫০ টাকা</button>
+    <button onclick="selectFee(100)" style="padding:10px 20px; margin:5px; background:green; color:white; border:none; border-radius:5px;">১০০ টাকা</button>
+    <br><br>
+    <button onclick="closeFeeModal()" style="padding:5px 10px; background:red; color:white; border:none; border-radius:5px;">বন্ধ করুন</button>
+</div>
+
 </body>
 </html>
