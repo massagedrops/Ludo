@@ -40,6 +40,21 @@
     <br><br>
     <button onclick="closeFeeModal()" style="padding:5px 10px; background:red; color:white; border:none; border-radius:5px;">বন্ধ করুন</button>
 </div>
+<!-- ডিপোজিট ও উইথড্র বাটন সেকশন -->
+<div style="text-align: center; margin: 15px;">
+    <button onclick="openDepositModal()" style="padding: 8px 15px; background: #ff9800; color: white; border: none; border-radius: 5px; font-weight: bold; margin-right: 5px;">ডিপোজিট (Deposit)</button>
+    <button onclick="openWithdrawModal()" style="padding: 8px 15px; background: #e91e63; color: white; border: none; border-radius: 5px; font-weight: bold;">উইথড্র (Withdraw)</button>
+</div>
+
+<!-- ডিপোজিট পপ-আপ বক্স -->
+<div id="depositModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#222; padding:20px; border-radius:10px; color:#fff; z-index:1000; text-align:center; width: 80%;">
+    <h3>টাকা ডিপোজিট করুন</h3>
+    <p>বিকাশ/নগদ সেন্ড মানি করে তথ্য দিন:</p>
+    <input type="text" id="depNumber" placeholder="আপনার বিকাশ/নগদ নম্বর" style="padding:8px; width:90%; margin-bottom:10px;"><br>
+    <input type="number" id="depAmount" placeholder="টাকার পরিমাণ (যেমন: ৫০০)" style="padding:8px; width:90%; margin-bottom:10px;"><br>
+    <button onclick="submitDeposit()" style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">রিকুয়েস্ট পাঠান</button>
+    <button onclick="closeDepositModal()" style="padding:10px 20px; background:red; color:white; border:none; border-radius:5px; margin-left:5px;">বন্ধ করুন</button>
+</div>
 
 </body>
 </html>
