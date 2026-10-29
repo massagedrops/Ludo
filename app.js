@@ -866,4 +866,27 @@
     addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
   }
   window.__ludo = { get G() { return G; }, get OL() { return OL; }, S, E }; // handy for debugging/tests
+  // --- ডিপোজিট ও ওয়ালেট সিস্টেম কোড ---
+
+// ১. এন্ট্রি ফি কাটার ফাংশন (ম্যাচ শুরু করার সময়)
+
+
+function deductEntryFee(currentBalance, entryFee) {
+    if (currentBalance >= entryFee) {
+        let updatedBalance = currentBalance - entryFee;
+        console.log("সফলভাবে এন্ট্রি ফি কাটা হয়েছে। নতুন ব্যালেন্স: " + updatedBalance);
+        return updatedBalance;
+    } else {
+        alert("আপনার অ্যাকাউন্টে পর্যাপ্ত ব্যালেন্স নেই! দয়া করে ডিপোজিট করুন।");
+        return null;
+    }
+}
+
+// ২. ম্যাচ জেতার পর টাকা যোগ করার ফাংশন
+function addWinningPrize(currentBalance, prizeAmount) {
+    let updatedBalance = currentBalance + prizeAmount;
+    console.log("বিজয়ী হয়েছেন! ওয়ালেটে টাকা যোগ হয়েছে। নতুন ব্যালেন্স: " + updatedBalance);
+    return updatedBalance;
+}
+
 })();
